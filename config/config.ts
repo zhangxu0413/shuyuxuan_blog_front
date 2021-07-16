@@ -1,7 +1,7 @@
 /*
  * @Date         : 2021-05-25 17:55:22
  * @LastEditors  : zhangxu
- * @LastEditTime : 2021-07-16 17:11:40
+ * @LastEditTime : 2021-07-16 20:01:05
  * @FilePath     : /shuyuxuan_blog_front/config/config.ts
  */
 import { defineConfig } from 'umi';
@@ -18,6 +18,7 @@ export default defineConfig({
     "primary-color": "#1C595A",
     'link-color': '#58A6A6'
   },
+  hash: true,
   // 配置开发服务器。
   devServer: {
     port: 3200
