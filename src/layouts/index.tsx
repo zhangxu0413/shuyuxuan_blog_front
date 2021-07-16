@@ -1,8 +1,8 @@
 /*
  * @Date         : 2021-05-26 15:10:19
  * @LastEditors  : zhangxu
- * @LastEditTime : 2021-05-26 16:27:29
- * @FilePath     : /shuyuxuan/shuyuxuan_blog_front/src/layouts/index.tsx
+ * @LastEditTime : 2021-07-16 15:21:31
+ * @FilePath     : /shuyuxuan_blog_front/src/layouts/index.tsx
  */
 import { IRouteComponentProps } from 'umi'
 import styles from './index.less'
@@ -14,7 +14,7 @@ export default function Layout({ children, location, route, history, match }: IR
     <div className={styles.main}>
       <TopBar />
       <div className={styles.bd}>
-        <UserIntro />
+        {/* <UserIntro /> */}
         <div>{ children }</div>
       </div>
     </div>

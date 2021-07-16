@@ -1,8 +1,8 @@
 /*
  * @Date         : 2021-05-25 17:55:22
  * @LastEditors  : zhangxu
- * @LastEditTime : 2021-05-26 15:22:37
- * @FilePath     : /shuyuxuan/shuyuxuan_blog_front/config/config.ts
+ * @LastEditTime : 2021-07-16 17:11:40
+ * @FilePath     : /shuyuxuan_blog_front/config/config.ts
  */
 import { defineConfig } from 'umi';
 import router from './router'
@@ -13,6 +13,10 @@ export default defineConfig({
   cssLoader: {
     //将 ClassName 类名变成驼峰命名形式
     localsConvention: 'camelCase'
+  },
+  theme: {
+    "primary-color": "#1C595A",
+    'link-color': '#58A6A6'
   },
   // 配置开发服务器。
   devServer: {
