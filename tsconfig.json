@@ -13,6 +13,7 @@
       "@/*": ["src/*"],
       "@@/*": ["src/.umi/*"]
     },
+    "experimentalDecorators":true,
     "allowSyntheticDefaultImports": true
   },
   "include": [
