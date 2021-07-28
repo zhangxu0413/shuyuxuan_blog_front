@@ -22,3 +22,37 @@ body {
   font-family: 'FZZhaoMFXSJF';
   src: url('/font/FZZhaoMFXSJF.ttf');
 }
+.xkd(@n, @i: 1) when (@i =< @n) {
+  .m@{i} {
+    margin: @i+0px;
+  }
+  .mt@{i} {
+    margin-top: @i+0px;
+  }
+  .mb@{i} {
+    margin-bottom: @i+0px;
+  }
+  .ml@{i} {
+    margin-left: @i+0px;
+  }
+  .mr@{i} {
+    margin-right: @i+0px;
+  }
+  .p@{i} {
+    padding: @i+0px;
+  }
+  .pt@{i} {
+    padding-top: @i+0px;
+  }
+  .pb@{i} {
+    padding-bottom: @i+0px;
+  }
+  .pl@{i} {
+    padding-left: (@i) px;
+  }
+  .pr@{i} {
+    padding-right: (@i) px;
+  }
+  .xkd(@n, (@i + 1));
+}
+.xkd(10);
