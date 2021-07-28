@@ -5,7 +5,7 @@
   right: 0;
   height: 50px;
   width: 100vw;
-  background: rgba(51, 51, 51, .4);
+  background: rgba(51, 51, 51, 0.4);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,12 +20,13 @@
     .module-item {
       font-size: 20px;
       color: #fff;
-      width: 90px;
+      min-width: 90px;
+      padding: 0 30px;
       line-height: 50px;
       text-align: center;
       cursor: pointer;
       &:hover {
-        background: rgba(0, 0, 0, .6);
+        background: rgba(0, 0, 0, 0.6);
       }
     }
   }
