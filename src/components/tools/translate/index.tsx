@@ -1,7 +1,7 @@
 /*
  * @Date         : 2021-07-28 09:33:34
  * @LastEditors  : zhangxu
- * @LastEditTime : 2021-07-28 14:53:01
+ * @LastEditTime : 2021-07-28 20:07:46
  * @FilePath     : /shuyuxuan_blog_front/src/components/tools/translate/index.tsx
  */
 import React, { FC, useState } from 'react';
@@ -10,6 +10,8 @@ import styles from './index.less';
 import md5 from 'md5';
 import { translateRequest } from '@/service/tools';
 import $ from 'jquery';
+import classNames from 'classNames';
+import { copyText } from '@/utils';
 const { Option } = Select;
 const config = {
   appid: '20210727000899584',
@@ -28,9 +30,11 @@ const Translate: FC = () => {
     return md5(str);
   };
   const toHump = (name: string) => {
-    return name.replace(/\s(\w)/g, function (all, letter) {
-      return letter.toUpperCase();
-    });
+    return name
+      .replace(/\s(\w)/g, function (all, letter) {
+        return letter.toUpperCase();
+      })
+      .replace(name[0], name[0].toLowerCase());
   };
   const submit = () => {
     const salt = Math.floor(Math.random() * 1e10);
@@ -43,7 +47,7 @@ const Translate: FC = () => {
       to: typeMap[type].to,
     };
     $.ajax({
-      url: 'http://api.fanyi.baidu.com/api/trans/vip/translate',
+      url: 'https://api.fanyi.baidu.com/api/trans/vip/translate',
       type: 'get',
       dataType: 'jsonp',
       data: params,
@@ -72,16 +76,28 @@ const Translate: FC = () => {
       </Input.Group>
       {translateResult && (
         <div className={styles.result}>
-          <div>
-            翻译结果：{translateResult}{' '}
-            <Button size="small" type="dashed">
+          <div className={`${styles['result-item']} mb10`}>
+            翻译结果：{translateResult}
+            <Button
+              size="small"
+              type="dashed"
+              onClick={() => {
+                copyText(translateResult);
+              }}
+            >
               复制
             </Button>
           </div>
           {type === 'ZH' && (
-            <div>
-              命名建议：{toHump(translateResult)}{' '}
-              <Button size="small" type="dashed">
+            <div className={styles['result-item']}>
+              命名建议：{toHump(translateResult)}
+              <Button
+                size="small"
+                type="dashed"
+                onClick={() => {
+                  copyText(toHump(translateResult));
+                }}
+              >
                 复制
               </Button>
             </div>
